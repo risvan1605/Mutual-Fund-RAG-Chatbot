@@ -14,6 +14,14 @@ st.caption("Facts-only. No investment advice. Based on Groww Mutual Fund data.")
 
 # Validate API Key
 from backend.config import settings
+import logging
+logging.basicConfig(level=logging.INFO)
+_logger = logging.getLogger("streamlit_app")
+
+_logger.info(f"GROQ_API_KEY loaded: {'Yes' if settings.GROQ_API_KEY else 'No'} (len={len(settings.GROQ_API_KEY) if settings.GROQ_API_KEY else 0})")
+_logger.info(f"CHROMA_PERSIST_DIR: {settings.CHROMA_PERSIST_DIR}")
+_logger.info(f"EMBEDDING_MODEL: {settings.EMBEDDING_MODEL}")
+
 if not settings.GROQ_API_KEY or settings.GROQ_API_KEY == "your_key_here":
     st.error("⚠️ GROQ_API_KEY is missing! If you are deploying on Streamlit Cloud, please add it to your App Settings -> Secrets.")
     st.stop()
