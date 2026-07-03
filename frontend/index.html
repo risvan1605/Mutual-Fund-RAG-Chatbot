@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mutual Fund FAQ Assistant</title>
+    
+    <!-- Google Fonts: Inter & Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="disclaimer-banner">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+        <span><strong>Disclaimer:</strong> Facts-only assistant. No investment advice provided. Data based on Groww mutual fund schemes.</span>
+    </div>
+
+    <main class="app-container">
+        <div class="chat-container">
+            <header class="chat-header">
+                <div class="header-info">
+                    <h1>Mutual Fund Assistant</h1>
+                    <p>Ask anything about selected Groww mutual funds</p>
+                </div>
+            </header>
+            
+            <div class="chat-window" id="chat-window">
+                <!-- Welcome Message -->
+                <div class="message assistant-message welcome-card">
+                    <div class="avatar assistant-avatar">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"></path><rect width="16" height="12" x="4" y="8" rx="2"></rect><path d="M2 14h2"></path><path d="M20 14h2"></path><path d="M15 13v2"></path><path d="M9 13v2"></path></svg>
+                    </div>
+                    <div class="message-content">
+                        <p>Hi there! I'm a factual assistant trained on Groww mutual fund scheme documents. I can help you with details like expense ratios, exit loads, minimum SIP amounts, and more.</p>
+                        <p class="suggestions-title">Here are some things you can ask me:</p>
+                        <div class="suggestions-container">
+                            <button class="suggestion-chip">What is the expense ratio of Nippon India Small Cap Fund?</button>
+                            <button class="suggestion-chip">What is the exit load for ICICI Prudential Balanced Advantage Fund?</button>
+                            <button class="suggestion-chip">What is the minimum SIP amount for Mirae Asset Flexi Cap Fund?</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="input-area">
+                <form id="chat-form" class="input-form">
+                    <input type="text" id="user-input" placeholder="Ask a question about mutual funds..." autocomplete="off" required maxlength="500">
+                    <button type="submit" id="send-button" aria-label="Send message">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

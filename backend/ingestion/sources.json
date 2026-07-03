@@ -1,0 +1,105 @@
+{
+  "description": "Groww mutual fund scheme URLs organized by AMC",
+  "sources": [
+    {
+      "amc": "Nippon India Mutual Fund",
+      "schemes": [
+        {
+          "name": "Nippon India Small Cap Fund",
+          "category": "Small Cap",
+          "url": "https://groww.in/mutual-funds/nippon-india-small-cap-fund-direct-growth"
+        },
+        {
+          "name": "Nippon India Large Cap Fund",
+          "category": "Large Cap",
+          "url": "https://groww.in/mutual-funds/nippon-india-large-cap-fund-direct-growth"
+        },
+        {
+          "name": "Nippon India Multi Cap Fund",
+          "category": "Multi Cap",
+          "url": "https://groww.in/mutual-funds/nippon-india-multi-cap-fund-direct-growth"
+        }
+      ]
+    },
+    {
+      "amc": "Motilal Oswal Mutual Fund",
+      "schemes": [
+        {
+          "name": "Motilal Oswal Midcap Fund",
+          "category": "Mid Cap",
+          "url": "https://groww.in/mutual-funds/motilal-oswal-most-focused-midcap-30-fund-direct-growth"
+        },
+        {
+          "name": "Motilal Oswal ELSS Tax Saver Fund",
+          "category": "ELSS",
+          "url": "https://groww.in/mutual-funds/motilal-oswal-long-term-equity-fund-direct-growth"
+        },
+        {
+          "name": "Motilal Oswal Flexi Cap Fund",
+          "category": "Flexi Cap",
+          "url": "https://groww.in/mutual-funds/motilal-oswal-multicap-35-fund-direct-growth"
+        }
+      ]
+    },
+    {
+      "amc": "Mirae Asset Mutual Fund",
+      "schemes": [
+        {
+          "name": "Mirae Asset Large & Midcap Fund",
+          "category": "Large & Mid Cap",
+          "url": "https://groww.in/mutual-funds/mirae-asset-emerging-bluechip-fund-direct-growth"
+        },
+        {
+          "name": "Mirae Asset Flexi Cap Fund",
+          "category": "Flexi Cap",
+          "url": "https://groww.in/mutual-funds/mirae-asset-flexi-cap-fund-direct-growth"
+        },
+        {
+          "name": "Mirae Asset Healthcare Fund",
+          "category": "Sectoral/Thematic",
+          "url": "https://groww.in/mutual-funds/mirae-asset-healthcare-fund-direct-growth"
+        }
+      ]
+    },
+    {
+      "amc": "Aditya Birla Sun Life Mutual Fund",
+      "schemes": [
+        {
+          "name": "Aditya Birla Sun Life Gold Fund",
+          "category": "Gold",
+          "url": "https://groww.in/mutual-funds/aditya-birla-sun-life-gold-fund-direct-growth"
+        },
+        {
+          "name": "Aditya Birla Sun Life Enhanced Arbitrage Fund",
+          "category": "Arbitrage",
+          "url": "https://groww.in/mutual-funds/aditya-birla-sun-life-enhanced-arbitrage-fund-direct-growth"
+        },
+        {
+          "name": "Aditya Birla Sun Life Multi Asset Allocation Fund",
+          "category": "Multi Asset Allocation",
+          "url": "https://groww.in/mutual-funds/aditya-birla-sun-life-multi-asset-allocation-fund-direct-growth"
+        }
+      ]
+    },
+    {
+      "amc": "ICICI Prudential Mutual Fund",
+      "schemes": [
+        {
+          "name": "ICICI Prudential Silver ETF FoF",
+          "category": "Silver",
+          "url": "https://groww.in/mutual-funds/icici-prudential-silver-etf-fof-direct-growth"
+        },
+        {
+          "name": "ICICI Prudential Liquid Fund",
+          "category": "Liquid",
+          "url": "https://groww.in/mutual-funds/icici-prudential-liquid-fund-direct-growth"
+        },
+        {
+          "name": "ICICI Prudential Balanced Advantage Fund",
+          "category": "Balanced Advantage",
+          "url": "https://groww.in/mutual-funds/icici-prudential-balanced-advantage-fund-direct-growth"
+        }
+      ]
+    }
+  ]
+}
