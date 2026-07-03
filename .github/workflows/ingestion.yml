@@ -41,7 +41,7 @@ jobs:
         git config --local user.name "github-actions[bot]"
         
         # Add any changes in the data directory (ChromaDB)
-        git add data/chroma_db/
+        git add -f data/chroma_db/
         
         # Only commit if there are changes
         if git diff --staged --quiet; then
