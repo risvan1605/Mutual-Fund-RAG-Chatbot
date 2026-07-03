@@ -17,7 +17,7 @@ load_dotenv(dotenv_path=_env_path)
 # Resolve CHROMA_PERSIST_DIR relative to the project root so it works
 # regardless of the working directory (important for Streamlit Cloud).
 _PROJECT_ROOT = Path(__file__).resolve().parent.parent
-_default_chroma = str(_PROJECT_ROOT / "data" / "chroma_db")
+_default_chroma = str(_PROJECT_ROOT / "data" / "chroma_db_v2")
 
 
 def _get_secret(key: str, default: str = "") -> str:
