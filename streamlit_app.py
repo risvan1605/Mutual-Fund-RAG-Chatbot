@@ -1,15 +1,15 @@
-import streamlit as st
-import sys
-import os
-
 # Streamlit Cloud uses an older version of sqlite3 which is incompatible with ChromaDB
-# This overrides the default sqlite3 with pysqlite3-binary
+# This overrides the default sqlite3 with pysqlite3-binary BEFORE any other imports
 try:
     __import__('pysqlite3')
+    import sys
     sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 except ImportError:
     pass
 
+import streamlit as st
+import sys
+import os
 # Ensure the backend module can be imported
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
@@ -95,7 +95,9 @@ if prompt:
                 # Add assistant response to chat history
                 st.session_state.messages.append({"role": "assistant", "content": display_text})
             except Exception as e:
-                _logger.error(f"Error processing query: {e}", exc_info=True)
-                error_msg = f"I encountered an error while trying to process your request: {e}"
+                import traceback
+                tb = traceback.format_exc()
+                _logger.error(f"Error processing query: {e}\n{tb}")
+                error_msg = f"I encountered an error while trying to process your request:\n\n```\n{e}\n\n{tb}\n```"
                 st.error(error_msg)
                 st.session_state.messages.append({"role": "assistant", "content": error_msg})
