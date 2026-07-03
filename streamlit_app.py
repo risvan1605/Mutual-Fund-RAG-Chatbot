@@ -26,8 +26,27 @@ for message in st.session_state.messages:
     with st.chat_message(message["role"]):
         st.markdown(message["content"])
 
-# React to user input
-if prompt := st.chat_input("Ask a question about a mutual fund scheme..."):
+# Handle suggested questions when chat is empty (only welcome message)
+suggested_question = None
+if len(st.session_state.messages) == 1:
+    st.write("**Try asking:**")
+    q1 = "What is the expense ratio of Nippon India Small Cap Fund?"
+    q2 = "What is the exit load for ICICI Prudential Balanced Advantage Fund?"
+    q3 = "What is the minimum SIP amount for Mirae Asset Flexi Cap Fund?"
+    
+    if st.button(q1, use_container_width=True):
+        suggested_question = q1
+    if st.button(q2, use_container_width=True):
+        suggested_question = q2
+    if st.button(q3, use_container_width=True):
+        suggested_question = q3
+
+# React to user input or suggested question
+prompt = st.chat_input("Ask a question about a mutual fund scheme...")
+if suggested_question:
+    prompt = suggested_question
+
+if prompt:
     # Display user message in chat message container
     st.chat_message("user").markdown(prompt)
     # Add user message to chat history
