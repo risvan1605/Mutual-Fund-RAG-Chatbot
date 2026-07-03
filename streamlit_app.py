@@ -1,19 +1,35 @@
-# Streamlit Cloud uses an older version of sqlite3 which is incompatible with ChromaDB
-# This overrides the default sqlite3 with pysqlite3-binary BEFORE any other imports
+# Strict sqlite3 override for Streamlit Cloud
+import os
+import sys
 try:
-    __import__('pysqlite3')
-    import sys
+    import pysqlite3
     sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 except ImportError:
     pass
 
+# Verify sqlite3 version (helpful for debugging Streamlit logs)
+import sqlite3
+print(f"Loaded sqlite3 version: {sqlite3.sqlite_version}")
+if sqlite3.sqlite_version_info < (3, 35, 0):
+    print("WARNING: sqlite3 version is below 3.35.0, ChromaDB may fail!")
+
 import streamlit as st
 import sys
 import os
+
 # Ensure the backend module can be imported
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 from backend.core.chat_flow import process_chat_message
+from backend.core.rag_pipeline import get_rag_pipeline
+
+@st.cache_resource
+def load_rag_pipeline():
+    """Warms up the RAG pipeline once per app lifecycle."""
+    return get_rag_pipeline()
+
+# Initialize pipeline in background
+_ = load_rag_pipeline()
 
 st.set_page_config(page_title="Mutual Fund FAQ Assistant", page_icon="📈", layout="centered")
 

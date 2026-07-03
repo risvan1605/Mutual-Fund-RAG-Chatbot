@@ -2,6 +2,11 @@
 RAG Pipeline — handles context retrieval and answer generation.
 """
 
+import os
+# Suppress HuggingFace and Tokenizers warnings in constrained environments
+os.environ["HF_HUB_DISABLE_SYMLINKS_WARNING"] = "1"
+os.environ["TOKENIZERS_PARALLELISM"] = "false"
+
 import logging
 from typing import List, Dict, Any
 import chromadb
