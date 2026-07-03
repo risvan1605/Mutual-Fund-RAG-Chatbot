@@ -10,3 +10,4 @@ groq
 python-dotenv
 pydantic
 streamlit
+pysqlite3-binary

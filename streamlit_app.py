@@ -2,6 +2,14 @@ import streamlit as st
 import sys
 import os
 
+# Streamlit Cloud uses an older version of sqlite3 which is incompatible with ChromaDB
+# This overrides the default sqlite3 with pysqlite3-binary
+try:
+    __import__('pysqlite3')
+    sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+except ImportError:
+    pass
+
 # Ensure the backend module can be imported
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
