@@ -60,7 +60,7 @@ class Settings:
     def EMBEDDING_MODEL(self) -> str:
         if not hasattr(self, "_embedding_model"):
             self._embedding_model = _get_secret(
-                "EMBEDDING_MODEL", "all-MiniLM-L6-v2"
+                "EMBEDDING_MODEL", "BAAI/bge-small-en-v1.5"
             )
         return self._embedding_model
 
