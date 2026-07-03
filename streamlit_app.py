@@ -87,6 +87,7 @@ if prompt:
                 # Add assistant response to chat history
                 st.session_state.messages.append({"role": "assistant", "content": display_text})
             except Exception as e:
-                error_msg = f"Sorry, an error occurred: {str(e)}"
+                _logger.error(f"Error processing query: {e}", exc_info=True)
+                error_msg = f"I encountered an error while trying to process your request: {e}"
                 st.error(error_msg)
                 st.session_state.messages.append({"role": "assistant", "content": error_msg})
