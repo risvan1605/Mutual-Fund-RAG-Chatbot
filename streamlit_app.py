@@ -50,6 +50,24 @@ if not settings.GROQ_API_KEY or settings.GROQ_API_KEY == "your_key_here":
     st.error("⚠️ GROQ_API_KEY is missing! If you are deploying on Streamlit Cloud, please add it to your App Settings -> Secrets.")
     st.stop()
 
+# Sidebar with supported funds
+with st.sidebar:
+    st.header("Supported Funds")
+    st.write("I currently have knowledge about the following mutual funds:")
+    
+    import json
+    sources_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "backend", "ingestion", "sources.json")
+    try:
+        with open(sources_path, "r") as f:
+            sources_data = json.load(f)
+            
+        for amc in sources_data.get("sources", []):
+            with st.expander(amc["amc"]):
+                for scheme in amc["schemes"]:
+                    st.markdown(f"- [{scheme['name']}]({scheme['url']})")
+    except Exception as e:
+        st.error("Unable to load fund list.")
+
 # Initialize chat history
 if "messages" not in st.session_state:
     st.session_state.messages = []
