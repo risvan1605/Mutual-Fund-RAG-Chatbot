@@ -154,9 +154,11 @@ class RAGPipeline:
             }
 
         except Exception as e:
-            logger.error(f"Error generating answer: {e}")
+            import traceback
+            tb = traceback.format_exc()
+            logger.error(f"Error generating answer: {e}\n{tb}")
             return {
-                "answer": "I encountered an error while trying to process your request.",
+                "answer": f"I encountered an error while trying to process your request:\n\n**Error:** {e}\n\n**Details:**\n```\n{tb}\n```",
                 "citation": None,
                 "last_updated": None,
                 "type": "error",
