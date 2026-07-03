@@ -12,6 +12,12 @@ st.set_page_config(page_title="Mutual Fund FAQ Assistant", page_icon="📈", lay
 st.title("Mutual Fund FAQ Assistant 📈")
 st.caption("Facts-only. No investment advice. Based on Groww Mutual Fund data.")
 
+# Validate API Key
+from backend.config import settings
+if not settings.GROQ_API_KEY or settings.GROQ_API_KEY == "your_key_here":
+    st.error("⚠️ GROQ_API_KEY is missing! If you are deploying on Streamlit Cloud, please add it to your App Settings -> Secrets.")
+    st.stop()
+
 # Initialize chat history
 if "messages" not in st.session_state:
     st.session_state.messages = []
