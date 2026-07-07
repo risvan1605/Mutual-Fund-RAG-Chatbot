@@ -120,8 +120,12 @@ if prompt:
                 
                 # Format the display text
                 display_text = answer
+                response_type = response.get("type", "")
                 if citation:
-                    display_text += f"\n\n**Source:** [{citation['title']}]({citation['url']})"
+                    if response_type == "refusal":
+                        display_text += f"\n\n[{citation['title']}]({citation['url']})"
+                    else:
+                        display_text += f"\n\n**Source:** [{citation['title']}]({citation['url']})"
                 if last_updated:
                     display_text += f"\n\n*Last updated: {last_updated}*"
                 
